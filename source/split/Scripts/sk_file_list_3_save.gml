@@ -1,0 +1,30 @@
+//파일리스트의 끝 저장
+
+vb_file_list = file_bin_open(global.save+"\"+filename_name(global.load)+"_file_list.trl", 2)
+file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+
+sk_fl12s('0D'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('0A'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('0D'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('0A'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('2F'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('77'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('72'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('74'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('6E'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('6F'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('77'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('0D'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('0A'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('2F'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('6E'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('6F'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('63'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('6C'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('6F'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('73'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+sk_fl12s('65'); file_bin_seek(vb_file_list, file_bin_size(vb_file_list))
+
+file_bin_close(vb_file_list)
+
+// sk_file_list_3_save()

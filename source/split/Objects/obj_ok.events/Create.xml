@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="CREATE" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">message_background(bac_message)
+//메시지 화면설정
+sk_sex_set_font(0);
+//폰트설정
+
+
+image_speed=0
+
+stringsrfg[0]=""
+stringsrfg[1]=""
+
+progress=-1
+//진행상태
+
+global.load=0
+//로드폴더
+global.save=0
+//저장폴더
+global.front_head=0
+//앞머리 길이
+global.front_head2=0
+//추출시 앞머리 길이
+
+for(i=0; i!=10000; i+=1)
+{
+global.file_name[i]=''
+}
+//파일이름
+
+global.file_length[9999]=0
+//파일길이
+
+file_folder=0
+//파일의 폴더
+file_folder2=''
+</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>

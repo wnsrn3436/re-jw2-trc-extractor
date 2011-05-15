@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+  <resource name="sk_cut_hex" type="RESOURCE"/>
+  <resource name="한글드로우" type="GROUP"/>
+  <resource name="sk_draw_midd_text" type="RESOURCE"/>
+  <resource name="sk_hex_conversion" type="RESOURCE"/>
+  <resource name="sk_dec_conversion" type="RESOURCE"/>
+  <resource name="sk_save" type="RESOURCE"/>
+  <resource name="sk_file_list_1_save" type="RESOURCE"/>
+  <resource name="sk_file_list_1_1_save" type="RESOURCE"/>
+  <resource name="sk_file_list_2_save" type="RESOURCE"/>
+  <resource name="sk_file_list_3_save" type="RESOURCE"/>
+  <resource name="sk_fl12s" type="RESOURCE"/>
+</resources>

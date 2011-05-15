@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<event category="ALARM" id="0">
+  <actions>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if progress&gt;0
+{
+var suis, siiu;
+
+file_folder2=string(file_folder)
+
+suis=""
+siiu=12-string_length(file_folder2)
+repeat(siiu){suis+="0"}
+
+file_folder2=suis+file_folder2
+
+if file_exists(global.save+"\"+file_folder2+"\"+global.file_name[progress])=1{file_folder+=1}
+//중복시 파일폴더 1단계 업
+
+file_folder2=string(file_folder)
+
+suis=""
+siiu=12-string_length(file_folder2)
+repeat(siiu){suis+="0"}
+
+file_folder2=suis+file_folder2
+
+directory_create(global.save+"\"+file_folder2)
+
+sk_save()
+
+
+global.front_head2+=global.file_length[progress]
+progress+=1
+alarm[0]=3
+if progress=global.front_head/32{sk_file_list_3_save(); show_message("추출완료!료"); game_restart()}
+}
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">파일추출 하기</argument>
+      </arguments>
+    </action>
+    <action id="603" library="1">
+      <!--action name: Code-->
+      <kind>CODE</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>true</canApplyTo>
+      <actionType>CODE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">if progress=0
+{
+open_file = file_bin_open(global.load, 0)
+
+for(j=0; j!=4; j+=1)
+{
+file_bin_seek(open_file, 12+j)
+file_s[j] = sk_hex_conversion(file_bin_read_byte(open_file))
+}
+global.front_head=real(sk_dec_conversion(file_s[3]+file_s[2]+file_s[1]+file_s[0]))
+
+
+for(i=1; i!=global.front_head/32; i+=1)
+{
+
+for(j=0; j!=12; j+=1)
+{
+file_bin_seek(open_file, i*32+j)
+tmp_var=file_bin_read_byte(open_file)
+if tmp_var!=0{global.file_name[i]+=chr(tmp_var)}
+}
+if string_length(global.file_name[i])=string_pos(".", global.file_name[i]){global.file_name[i]=string_delete(global.file_name[i], string_length(global.file_name[i]), string_length(global.file_name[i]))}
+
+for(j=0; j!=4; j+=1)
+{
+file_bin_seek(open_file, i*32+20+j)
+file_s[j] = sk_hex_conversion(file_bin_read_byte(open_file))
+}
+global.file_length[i]=real(sk_dec_conversion(file_s[3]+file_s[2]+file_s[1]+file_s[0]))
+
+}
+file_bin_close(open_file)
+
+sk_file_list_1_save()
+
+progress+=1
+alarm[0]=30
+}
+//앞머리 가져오기, 이름 가져오기
+</argument>
+      </arguments>
+    </action>
+    <action id="605" library="1">
+      <!--action name: Comment-->
+      <kind>NORMAL</kind>
+      <allowRelative>false</allowRelative>
+      <question>false</question>
+      <canApplyTo>false</canApplyTo>
+      <actionType>NONE</actionType>
+      <functionName/>
+      <relative>false</relative>
+      <not>false</not>
+      <appliesTo>.self</appliesTo>
+      <arguments>
+        <argument kind="STRING">파일정보 얻기</argument>
+      </arguments>
+    </action>
+  </actions>
+</event>
